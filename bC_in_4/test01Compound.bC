@@ -1,0 +1,19 @@
+#DRBC CompoundK:
+#DRBC main returns type void [mem: Global loc: 0 size: -2] [line: 13]
+#DRBC .   Child: 1  Compound [mem: None loc: 0 size: -2] [line: 13]
+#DRBC .   .   Child: 1  Compound [mem: None loc: 0 size: -2] [line: 14]
+#DRBC 
+#DRBC                    CompoundK: save toffset
+#DRBC                    CompoundK: set toffset to currnode->size
+#DRBC * COMPOUND         CompoundK:
+#DRBC * TOFF set: -2     CompoundK:
+#DRBC                    -> child[0]
+#DRBC * Compound Body    CompoundK:
+#DRBC                    -> child[1]
+#DRBC                    CompoundK: restore toffset to the values saved above
+#DRBC * TOFF set: -2     CompoundK:
+#DRBC * END COMPOUND     CompoundK:
+
+main(){
+   {}
+}

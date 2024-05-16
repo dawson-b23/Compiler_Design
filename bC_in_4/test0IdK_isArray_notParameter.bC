@@ -1,0 +1,8 @@
+#DRBC IdK isArray=true varKind!=Parameter
+#DRBC * EXPRESSION                                                  Comment before all ExpK
+#DRBC  50:    LDA  5,-3(1)    Load address of base of array arr     IdK isArray=true varKind!=Parameter
+
+main() {
+   int arr[10];
+   arr[1+2] = 121;  // This is the line that makes the call
+}

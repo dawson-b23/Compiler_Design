@@ -1,0 +1,36 @@
+#DRBC OpK
+#DRBC Func: main returns type void [mem: Global loc: 0 size: -2] [line: 24]
+#DRBC .   Child: 1  Compound [mem: None loc: 0 size: -2] [line: 24]
+#DRBC .   .   Child: 1  Op: :>: of type int [line: 25]
+#DRBC .   .   .   Child: 0  Const 2 of type int [line: 25]
+#DRBC .   .   .   Child: 1  Const 3 of type int [line: 25]
+#DRBC .   .   Sibling: 1  Op: :<: of type int [line: 26]
+#DRBC .   .   .   Child: 0  Const 4 of type int [line: 26]
+#DRBC .   .   .   Child: 1  Const 5 of type int [line: 26]
+#DRBC 
+#DRBC ======================================================
+#DRBC See test0OpK0.bC for the first 7 lines of each section
+#DRBC These are all binary operators so they have 2 children
+#DRBC ======================================================
+#DRBC * EXPRESSION                                 
+#DRBC LDC  3,2(6)     Load integer constant     
+#DRBC  ST  3,-2(1)    Push left side               
+#DRBC * TOFF dec: -3                            
+#DRBC LDC  3,3(6)     Load integer constant     
+#DRBC * TOFF inc: -2                            
+#DRBC  LD  4,-2(1)    Pop left into ac1         
+#DRBC SWP  4,3,3      Op :>:                     OpK: attr.op = MAX
+#DRBC * EXPRESSION                                 
+#DRBC LDC  3,4(6)     Load integer constant     
+#DRBC  ST  3,-2(1)    Push left side            
+#DRBC * TOFF dec: -3                               
+#DRBC LDC  3,5(6)     Load integer constant        
+#DRBC * TOFF inc: -2                            
+#DRBC  LD  4,-2(1)    Pop left into ac1         
+#DRBC SWP  3,4,3      Op :<:                      OpK: attr.op = MIN
+
+
+main() {
+   2 :>: 3;
+   4 :<: 5;
+}

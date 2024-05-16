@@ -1,0 +1,22 @@
+#DRBC AssignK lhs->attr.op != '[' , attr.op = ADDASS
+#DRBC Sibling: 7  Func: main returns type void [mem: Global loc: 0 size: -2] [line: 3]
+#DRBC .   Child: 1  Compound [mem: None loc: 0 size: -3] [line: 3]
+#DRBC .   .   Child: 0  Var: a of type int [mem: Local loc: -2 size: 1] [line: 4]
+#DRBC .   .   Child: 1  Assign: += of type int [line: 5]
+#DRBC .   .   .   Child: 0  Id: a of type int [mem: Local loc: -2 size: 1] [line: 5]
+#DRBC .   .   .   Child: 1  Const 200 of type int [line: 5]
+
+#DRBC * EXPRESSION                                   Comment printed before every ExpK   
+#DRBC                                              AssignK TreeNode *rhs, *lhs; lhs = currnode->child[0]; rhs = currnode->child[1];
+#DRBC                                              AssignK: remaining line are if isArray == false 
+#DRBC                                              AssignK int offReg = offsetRegister(lhs->varKind)
+#DRBC   
+#DRBC  40:    LDC  3,200(6)   Load integer constant   ->child[rhs] // if it exists       
+#DRBC  41:     LD  4,-2(1) load lhs variable a       AssignK when attr.op is ADDASS 
+#DRBC  42:    ADD  3,4,3   op +=                     AssignK when attr.op is ADDASS 
+#DRBC  43:     ST  3,-2(1) Store variable a         AssignK when attr.op is ADDASS 
+
+main(){
+  int a;
+  a += 200;
+}

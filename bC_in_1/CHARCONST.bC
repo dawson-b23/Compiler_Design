@@ -1,0 +1,3 @@
+#DRBC Testing multiple CHARCONST on the same line
+
+'C' '\A' 'R' 'S' '\O' 'N'

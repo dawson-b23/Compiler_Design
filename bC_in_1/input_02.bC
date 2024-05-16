@@ -1,0 +1,25 @@
+#DRBC Keywords Test
+#DRBC This file list each keyword to ensure your parser.l catches them all.
+and
+bool
+break
+by
+char
+do
+else
+false
+for
+if
+int
+not
+or
+return
+static
+then
+to
+true
+while
+do not bool by break
+and do not bool while static 
+bool break by char do else false for if int not or return static then to true while
+

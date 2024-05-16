@@ -1,0 +1,25 @@
+#DRBC AssignK (lhs->attr.op != '['), (currnode->attr.op == '='), (lhs->isArray) and (lhs->varKind !=Parameter)
+#DRBC  Func: main returns type void [mem: Global loc: 0 size: -2] [line: 16]
+#DRBC  .   Child: 1  Compound [mem: None loc: 0 size: -8] [line: 17]
+#DRBC  .   .   Child: 0  Var: a of array of type char [mem: Local loc: -3 size: 6] [line: 18]
+#DRBC  .   .   Child: 1  Assign: = of array of type char [line: 19]
+#DRBC  .   .   .   Child: 0  Id: a of array of type char [mem: Local loc: -3 size: 6] [line: 19]
+#DRBC  .   .   .   Child: 1  Const "cool" of array of type char [mem: Global loc: -1 size: 5] [line: 19]
+#DRBC 
+#DRBC  40:    LDC  3,5(6)     load size of array a                  <
+#DRBC  41:     ST  3,-2(1)    save size of array a                  <
+#DRBC * Compound Body                                                
+#DRBC * EXPRESSION                                                  
+#DRBC   1:    LIT  "cool"                                           ->child[1]
+#DRBC  42:    LDA  3,-1(0)    Load address of char array            ->child[1]
+#DRBC  43:    LDA  4,-3(1)    address of lhs                        AssignK: lhs->varKind != Parameter
+#DRBC  44:     LD  5,1(3)     size of rhs                           AssignK:
+#DRBC  45:     LD  6,1(4)     size of lhs                           AssignK:
+#DRBC  46:    SWP  5,6,6      pick smallest size                    AssignK:
+#DRBC  47:    MOV  4,3,5      array op =                            AssignK:
+
+main()
+{
+   char a[5];
+   a = "cool";
+}

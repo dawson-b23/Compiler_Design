@@ -1,0 +1,26 @@
+#DRBC Testing numconst from section 1.1
+
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+0 1 2 3 4 5 6 7 8 9
+0123456789
+
+1.1
+1.
+.1
+
+
+4AA345
+-56
+a3 A3 a3A3 a3A3a3A3
+ffff
+FFFF

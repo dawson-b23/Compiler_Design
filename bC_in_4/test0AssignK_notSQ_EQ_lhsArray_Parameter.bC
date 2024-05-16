@@ -1,0 +1,41 @@
+#DRBC AssignK (lhs->attr.op != '['), (currnode->attr.op == '='), (lhs->isArray) and (lhs->varKind ==Parameter)
+#DRBC Func: myFun returns type void [mem: Global loc: 0 size: -3] [line: 1] 
+#DRBC .   Child: 0  Parm: a of array of type char [mem: Parameter loc: -2 size: 1] [line: 1]
+#DRBC .   Child: 1  Compound [mem: None loc: 0 size: -3] [line: 1]
+#DRBC .   .   Child: 1  Assign: = of array of type char [line: 3]
+#DRBC .   .   .   Child: 0  Id: a of array of type char [mem: Parameter loc: -2 size: 1] [line: 3]
+#DRBC .   .   .   Child: 1  Const "cool" of array of type char [mem: Global loc: -1 size: 5] [line: 3]
+#DRBC Sibling: 8  Func: main returns type void [mem: Global loc: 0 size: -2] [line: 7]
+#DRBC .   Child: 1  Compound [mem: None loc: 0 size: -2] [line: 7]
+#DRBC * FUNCTION myFun                                              <
+#DRBC * TOFF set: -3                                                <
+#DRBC 39:     ST  3,-1(1)    Store return address                   <
+#DRBC * COMPOUND                                                    <
+#DRBC * TOFF set: -3                                                <
+#DRBC * Compound Body                                               <
+#DRBC * EXPRESSION                                                  this is comment before any Exp.
+#DRBC                                                               if(lhs->attr.op != '[')
+#DRBC  1:    LIT  "cool"                                            ->child[1] if it exits.
+#DRBC  40:    LDA  3,-1(0)    Load address of char array            ->child[1] if it exits.
+#DRBC                                                               (currnode->attr.op == '=') and (lhs->isArray) in the the following lines
+#DRBC  41:     LD  4,-2(1)    address of lhs                        AssignK (lhs->varKind ==Parameter)
+#DRBC  42:     LD  5,1(3)     size of rhs                           AssignK
+#DRBC  43:     LD  6,1(4)     size of lhs                           AssignK
+#DRBC  44:    SWP  5,6,6      pick smallest size                    AssignK
+#DRBC  45:    MOV  4,3,5      array op =                            AssignK
+#DRBC * TOFF set: -3                                                <
+#DRBC * END COMPOUND                                                <
+#DRBC * Add standard closing in case there is no return statement   <
+#DRBC  46:    LDC  2,0(6)     Set return value to 0                 <
+#DRBC  47:     LD  3,-1(1)    Load return address                   <
+#DRBC  48:     LD  1,0(1)     Adjust fp                             <
+#DRBC  49:    JMP  7,0(3)     Return                                <
+#DRBC * END FUNCTION myFun                                          <
+#DRBC *                                                             <
+#DRBC * ** ** ** ** ** ** ** ** ** ** ** **
+
+myFun(char a[]) {
+   a = "cool";
+}
+main() {
+}

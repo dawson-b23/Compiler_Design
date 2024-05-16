@@ -1,0 +1,7 @@
+fred()
+{
+        loop i=1..10 do loop i=1..10 do 7;
+        loop i=1..10 do if true then {int i;}
+        }
+        
+cat(int i) if true then {int i;}

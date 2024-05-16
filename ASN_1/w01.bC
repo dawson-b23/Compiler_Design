@@ -1,0 +1,154 @@
+#DRBC CS445 Assignment 1
+#DRBC This program tests every grammar production rule from the bC grammer, in an application of a basic calculator. 
+
+//global 
+int ga[10];
+
+// this is a function that doesnt do anything 
+int foo(int a, b[]; bool c, d; int e; char f) {
+	return;
+}
+
+// function for comparing two integers, returns either true or false 
+compare(int a, b) {
+	
+	bool isGreater : TRUE;
+
+	if(a > b) then {
+		return isGreater;
+	}
+	else {
+		isGreater = FALSE;
+		break;
+	}
+	return isGreater;
+}
+
+// divides 2 numbers and returns the result
+int divide(int a, b) {
+	a /= b;
+	return (a / b);
+}
+
+// multiplies 2 numbers and returns the result
+int multiply(int a, b) {
+	a *= b;
+	return (a * b);
+}
+
+// adds 2 numbers and returns the result
+int add(int a, b) {
+	return (a + b);
+}
+
+// subtracts 2 numbers and returns the result
+int minus(int a, b) {
+	return (a - b);
+}
+
+// uselss function 
+int uselessFun() {
+	return;
+}
+
+int main() { 
+	
+	// char const
+    char t[15]:"the cat";	
+    // assignment 
+	int n : 5;
+	// multiple assignments on same line 
+	int x, y, ya[10];
+	int r;
+	int b[4];
+	//static variable 
+	static int l;
+	//char const
+	char letter;
+	// assignment letter 
+	letter = 'n';
+	//bool : z;
+	//bool : f;
+	// assigning values 
+	x = 5;
+	y = 6;
+	n = 5;
+
+	//int temp[5] : b[1];
+	;
+
+	
+	output(-x);
+	output(*x);
+	output(?y);
+	compare(x, y);
+	f = true;
+	z = not f;
+    a[1] = 777;
+    output(a[1]);
+    uselessFun();
+
+    if (x < y and y > x) then {
+    	x++;
+    }
+    else {
+    	x--;
+    }
+
+    if (x <= y) then {
+    	y++;
+    }
+    if (y >= x) then {
+    	x++;
+    }
+
+    if (x == y or y == x) then {
+    	y--;
+    }
+
+    x = 10 :>: 5;
+    y = 10 :<: 6;
+    x = ?10;
+    x = 10%2;
+
+    while (x != 10) do {
+    	x++;
+    }
+
+    for m = 0 to 100 do {
+    	x++;
+    }
+	//rules 19 and 20 (66, 72, and 73)
+	for m = 0 to 100 do { 
+		for n = 0 to 100 by 2 do { 
+			if(true == true) then { happy += 20; } 
+			else 
+				while (true == false) do {
+					if (false != false) then { happy -= 100; }
+			}
+		}
+	}
+	for x=3 to n by 2 do {
+    	if (x>n) then break;
+        while (n%x==0) do {
+           	output(x);
+            n /= x;
+        }
+    }
+
+    for y=x+1 to 100 do {
+    	if (a[y] < a[b]) then b = y;
+    }
+
+    if(false) then{ //unmatched
+      //<NUMCONST>
+      int a:2;
+   }
+   for i = 0 to 100 do { // 18c, 19a
+      //20d, 19b, 20b, 20c
+      for j = 0 to 100 by 2 do 
+         if (true == true) then {numCandy += j;}
+         else while (true == false) do if (false != false) then numCandy = -100;
+   }  
+}
+

@@ -1,0 +1,34 @@
+#DRBC OpK
+#DRBC Func: main returns type void [mem: Global loc: 0 size: -2] [line: 19]
+#DRBC .   Child: 1  Compound [mem: None loc: 0 size: -2] [line: 19]
+#DRBC .   .   Child: 1  Op: and of type bool [line: 20]
+#DRBC .   .   .   Child: 0  Const true of type bool [line: 20]
+#DRBC .   .   .   Child: 1  Const true of type bool [line: 20]
+#DRBC .   .   Sibling: 1  Op: or of type bool [line: 21]
+#DRBC .   .   .   Child: 0  Const true of type bool [line: 21]
+#DRBC .   .   .   Child: 1  Const true of type bool [line: 21]
+#DRBC ======================================================
+#DRBC See test0OpK0.bC for the first 7 lines of each section
+#DRBC These are all binary operators so they have 2 children
+#DRBC ======================================================
+#DRBC * EXPRESSION                                                  
+#DRBC LDC  3,1(6)     Load Boolean constant                 
+#DRBC ST  3,-2(1)    Push left side                        
+#DRBC * TOFF dec: -3                                                
+#DRBC LDC  3,1(6)     Load Boolean constant                 
+#DRBC * TOFF inc: -2                                                
+#DRBC LD  4,-2(1)    Pop left into ac1                     
+#DRBC AND  3,4,3      Op AND                      OpK: attr.op = AND          
+#DRBC * EXPRESSION                                                  
+#DRBC LDC  3,1(6)     Load Boolean constant                 
+#DRBC ST  3,-2(1)    Push left side                        
+#DRBC * TOFF dec: -3                                                
+#DRBC LDC  3,1(6)     Load Boolean constant                 
+#DRBC * TOFF inc: -2                                                
+#DRBC LD  4,-2(1)    Pop left into ac1                    
+#DRBC OR  3,4,3      Op OR                        OpK: attr.op = OR         
+
+main() {
+   true and true;
+   true or true;
+}

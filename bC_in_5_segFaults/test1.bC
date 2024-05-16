@@ -1,0 +1,5 @@
+// C-S20
+
+main() {
+    output("Help \n \0");
+}

@@ -1,0 +1,51 @@
+#DRBC AssignK lhs->attr.op == '[' , rhs = NULL, varKind-> Parameter, attr.op->INC
+#DRBC 
+#DRBC Func: foo returns type void [mem: Global loc: 0 size: -3] [line: 36]
+#DRBC .   Child: 0  Parm: values of array of type int [mem: Parameter loc: -2 size: 1] [line: 36]
+#DRBC .   Child: 1  Compound [mem: None loc: 0 size: -3] [line: 37]
+#DRBC .   .   Child: 1  Assign: ++ of type int [line: 38]
+#DRBC .   .   .   Child: 0  Op: [ of type int [line: 38]
+#DRBC .   .   .   .   Child: 0  Id: values of array of type int [mem: Parameter loc: -2 size: 1] [line: 38]
+#DRBC .   .   .   .   Child: 1  Const 0 of type int [line: 38]
+#DRBC Sibling: 8  Func: main returns type void [mem: Global loc: 0 size: -2] [line: 41]
+#DRBC .   Child: 1  Compound [mem: None loc: 0 size: -2] [line: 41]
+#DRBC 
+#DRBC * FUNCTION foo                                                
+#DRBC * TOFF set: -3                                                
+#DRBC ST  3,-1(1)    Store return address                  
+#DRBC * COMPOUND                                               
+#DRBC * TOFF set: -3                                           
+#DRBC * Compound Body                                          
+#DRBC * EXPRESSION                                             AssignK: Comment printed before every ExpK
+#DRBC                                                          TreeNode *rhs, *lhs;
+#DRBC                                                          lhs = currnode->child[0];
+#DRBC                                                          rhs = currnode->child[1];
+#DRBC 
+#DRBC                                                          lhs == '[' is true for all remaining lines
+#DRBC                                                          isArray = true
+#DRBC                                                          var = lhs->child[0]
+#DRBC                                                          index = lhs->child[1]
+#DRBC  LDC  3,0(6)     Load integer constant                   AssignK: ->child[index]
+#DRBC   LD  5,-2(1)    Load address of base of array values    AssignK: var->varKind = Parameter
+#DRBC  SUB  5,5,3      Compute offset of value                 AssignK: rhs = false
+#DRBC   LD  3,0(5)     load lhs variable values                AssignK: lhs->attr.op = '[' , attr.op = INC
+#DRBC  LDA  3,1(3)     increment value of values               AssignK: lhs->attr.op = '[' , attr.op = INC
+#DRBC   ST  3,0(5)     Store variable values                   AssignK: lhs->attr.op = '[' , attr.op = INC
+#DRBC * TOFF set: -3                                                
+#DRBC * END COMPOUND                                                
+#DRBC * Add standard closing in case there is no return statement   
+#DRBC  LDC  2,0(6)     Set return value to 0                 
+#DRBC   LD  3,-1(1)    Load return address                   
+#DRBC   LD  1,0(1)     Adjust fp                             
+#DRBC  JMP  7,0(3)     Return                                
+#DRBC * END FUNCTION foo                                            
+#DRBC *                                                             
+#DRBC * ** ** ** ** ** ** ** ** ** ** ** **                         
+
+foo(int values[])
+{
+    values[0]++;
+}
+
+main() {
+}

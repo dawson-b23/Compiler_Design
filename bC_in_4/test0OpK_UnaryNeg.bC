@@ -1,0 +1,12 @@
+#DRBC OpK
+#DRBC Func: main returns type void [mem: Global loc: 0 size: -2] [line: 6]
+#DRBC .   Child: 1  Compound [mem: None loc: 0 size: -2] [line: 6]
+#DRBC .   .   Child: 1  Op: chsign of type int [line: 7]
+#DRBC .   .   .   Child: 0  Const 2 of type int [line: 7]
+#DRBC * EXPRESSION                           Comment printed before every ExpK
+#DRBC LDC  3,2(6)     Load integer constant  -> child[0]               
+#DRBC NEG  3,3,3      Op unary -             OpK: attr.op = CHSIGN               
+
+main() {
+   -2;
+}

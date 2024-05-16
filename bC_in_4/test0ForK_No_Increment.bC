@@ -1,0 +1,42 @@
+#DRBC ForK: with no BY
+#DRBC Func: main returns type void [mem: Global loc: 0 size: -2] [line: 29]
+#DRBC .   Child: 1  Compound [mem: None loc: 0 size: -2] [line: 29]
+#DRBC .   .   Child: 1  For [mem: None loc: 0 size: -5] [line: 30]
+#DRBC .   .   .   Child: 0  Var: i of type int [mem: Local loc: -2 size: 1] [line: 30]
+#DRBC .   .   .   Child: 1  Range [line: 30]
+#DRBC .   .   .   .   Child: 0  Const 3 of type int [line: 30]
+#DRBC .   .   .   .   Child: 1  Const 3 of type int [line: 30]
+#DRBC .   .   .   Child: 2  Compound [mem: None loc: 0 size: -5] [line: 30]
+#DRBC                                                                  See test0ForK_Increment.bC for the bulk of this 
+#DRBC * TOFF set: -5                                                
+#DRBC * FOR                                                         
+#DRBC  40:    LDC  3,3(6)     Load integer constant                 
+#DRBC  41:     ST  3,-2(1)    save starting value in index variable 
+#DRBC  42:    LDC  3,3(6)     Load integer constant                 
+#DRBC  43:     ST  3,-3(1)    save stop value                       
+#DRBC  44:    LDC  3,1(6)     default increment by 1                    ---- This is the only difference
+#DRBC                                                                   ---- If ->child[1]->child[2]==NULL do this instead of 
+#DRBC                                                                   ---- LDC  3,2(6)   Load integer constant
+#DRBC  45:     ST  3,-4(1)    save step value                       
+#DRBC  46:     LD  4,-2(1)    loop index                            
+#DRBC  47:     LD  5,-3(1)    stop value                            
+#DRBC  48:     LD  3,-4(1)    step value                            
+#DRBC  49:    SLT  3,4,5      Op <                                  
+#DRBC  50:    JNZ  3,1(7)     Jump to loop body                     
+#DRBC * COMPOUND                                                    
+#DRBC * TOFF set: -5                                                
+#DRBC * Compound Body                                               
+#DRBC * TOFF set: -5                                                
+#DRBC * END COMPOUND                                                
+#DRBC * Bottom of loop increment and jump                           
+#DRBC  52:     LD  3,-2(1)    Load index                            
+#DRBC  53:     LD  5,-4(1)    Load step                             
+#DRBC  54:    ADD  3,3,5      increment                             
+#DRBC  55:     ST  3,-2(1)    store back to index                   
+#DRBC  56:    JMP  7,-11(7)   go to beginning of loop               
+#DRBC  51:    JMP  7,5(7)     Jump past loop [backpatch]            
+#DRBC * END LOOP                                                    
+
+main() {
+   for i=3 to 3 do {}
+}

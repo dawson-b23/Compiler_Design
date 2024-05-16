@@ -1,0 +1,32 @@
+#DRBC AssignK lhs->attr.op != '[' , varKind->LocalStatic, attr.op->'='
+#DRBC 
+#DRBC Sibling: 7  Func: main returns type void [mem: Global loc: 39 size: -2] [line: 4]
+#DRBC .   Child: 1  Compound [mem: None loc: 0 size: -2] [line: 5]
+#DRBC .   .   Child: 0  Var: x of static type int [mem: LocalStatic loc: 0 size: 1] [line: 6]
+#DRBC .   .   .   Child: 0  Const 0 of type int [line: 6]
+#DRBC .   .   Child: 1  Assign: = of type int [line: 7]
+#DRBC .   .   .   Child: 0  Id: x of static type int [mem: LocalStatic loc: 0 size: 1] [line: 7]
+#DRBC .   .   .   Child: 1  Const 1 of type int [line: 7]
+#DRBC 
+#DRBC 
+#DRBC * EXPRESSION                                             AssignK: Comment printed before every ExpK
+#DRBC                                                          TreeNode *rhs, *lhs;
+#DRBC                                                          lhs = currnode->child[0];
+#DRBC                                                          rhs = currnode->child[1];
+#DRBC 
+#DRBC                                                          lhs == '[' is false for all remaining lines
+#DRBC                                                          isArray = false
+#DRBC                                                          offReg = offsetRegister(lhs->varKind)
+#DRBC 
+#DRBC   LDC  3,1(6)     Load integer constant                  AssignK: ->child[index]
+#DRBC   ST  3,0(0)     Store variable x                        AssignK: attr.op->'=', isArray = false
+#DRBC 
+#DRBC * INIT GLOBALS AND STATICS                               initAGlobalSymbol(): Comment printed before globals and statics
+#DRBC   LDC  3,0(6)     Load integer constant                  initAGlobalSymbol(): lineno != -1, isArray = false, kind.decl = VarK
+#DRBC   ST  3,0(0)     Store variable x                        initAGlobalSymbol(): lineno != -1, isArray = false, kind.decl = VarK
+
+main()
+{
+   static int x : 0;
+   x = 1;
+}

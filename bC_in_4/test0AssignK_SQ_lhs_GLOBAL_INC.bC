@@ -1,0 +1,36 @@
+#DRBC AssignK lhs->attr.op == '[' , rhs = NULL, varKind-> Global, attr.op->INC
+#DRBC 
+#DRBC Sibling: 7  Var: x of array of type int [mem: Global loc: -1 size: 5] [line: 3]
+#DRBC Sibling: 8  Func: main returns type void [mem: Global loc: 39 size: -2] [line: 4]
+#DRBC .   Child: 1  Compound [mem: None loc: 0 size: -2] [line: 5]
+#DRBC .   .   Child: 1  Assign: ++ of type int [line: 6]
+#DRBC .   .   .   Child: 0  Op: [ of type int [line: 6]
+#DRBC .   .   .   .   Child: 0  Id: x of array of type int [mem: Global loc: -1 size: 5] [line: 6]
+#DRBC .   .   .   .   Child: 1  Const 0 of type int [line: 6]
+#DRBC 
+#DRBC * EXPRESSION                                             AssignK: Comment printed before every ExpK
+#DRBC                                                          TreeNode *rhs, *lhs;
+#DRBC                                                          lhs = currnode->child[0];
+#DRBC                                                          rhs = currnode->child[1];
+#DRBC 
+#DRBC                                                          lhs == '[' is true for all remaining lines
+#DRBC                                                          isArray = true
+#DRBC                                                          var = lhs->child[0]
+#DRBC                                                          index = lhs->child[1]
+#DRBC 
+#DRBC   LDC  3,0(6)     Load integer constant                  AssignK: ->child[index]
+#DRBC   LDA  5,-1(0)    Load address of base of array x        AssignK: var->varKind = Global
+#DRBC   SUB  5,5,3      Compute offset of value                AssignK: rhs = false
+#DRBC   LD  3,0(5)      load lhs variable x                    AssignK: lhs->attr.op = '[' , attr.op = INC
+#DRBC   LDA  3,1(3)     increment value of x                   AssignK: lhs->attr.op = '[' , attr.op = INC
+#DRBC   ST  3,0(5)      Store variable x                       AssignK: lhs->attr.op = '[' , attr.op = INC
+#DRBC 
+#DRBC * INIT GLOBALS AND STATICS                               initAGlobalSymbol(): Comment printed before globals and statics
+#DRBC   LDC  3,4(6)    load size of array x                    initAGlobalSymbol(): lineno != -1, isArray = true 
+#DRBC   ST  3,0(0)     save size of array x                    initAGlobalSymbol(): lineno != -1, isArray = true
+int x[4];
+main()
+{
+    x[0]++;
+
+}

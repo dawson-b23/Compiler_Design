@@ -1,0 +1,17 @@
+// Option -d creates the header fiel as well.
+// Creates y.tab.c and y.tab.h
+// I think the next line is better.
+yacc -d tiny.y
+
+// Create tiny.tab.c  tiny.y
+bison -t -v -d tiny.y
+
+
+// Create the tokenizer/lexer  lex.yy.c
+lex tiny.l
+
+// compile the two files and generate teh output file;
+gcc lex.yy.c y.tab.c -o output
+
+// To run
+./output < sample

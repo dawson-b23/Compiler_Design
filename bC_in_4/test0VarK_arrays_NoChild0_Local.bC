@@ -1,0 +1,11 @@
+#DRBC VarK Local isArray = true,  child[0] does not exisit,  varKind = Local
+#DRBC Func: main returns type void [mem: Global loc: 0 size: -2] [line: 5]
+#DRBC .   Child: 1  Compound [mem: None loc: 0 size: -6] [line: 5]
+#DRBC .   .   Child: 0  Var: a of array of type char [mem: Local loc: -3 size: 4] [line: 6]
+#DRBC 
+#DRBC                                               Note: The next 2 lines ae for Local only. {LocalStatic, Parameter, and Global} do nothing
+#DRBC LDC  3,3(6)     load size of array a          VarK varKind=Local isArray
+#DRBC ST  3,-2(1)    save size of array a           VarK varKind=Local isArray
+main() {
+   char a[3];
+}

@@ -1,0 +1,8 @@
+#DRBC Func: main returns type void [mem: Global loc: 0 size: -2] [line: 2]
+#DRBC .   Child: 1  Compound [mem: None loc: 0 size: -2] [line: 2]
+#DRBC .   .   Child: 1  Const 1 of type int [line: 3]
+#DRBC * EXPRESSION                              ExpK
+#DRBC LDC  3,1(6)     Load integer constant     ConstantK type = Integer
+main() {
+   1;
+}

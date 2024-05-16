@@ -1,0 +1,193 @@
+// towerOfHanoi.c-
+// Ian Tanimoto
+// December 16 2016
+// CS 445: Compiler Design Fall 2016, Robert Heckendorn
+// Solves the 3 pole Towers of Hanoi problem.
+
+int poles:3;
+int disks;
+int game[60];
+
+printGame()
+{
+    int x, y:0, z;
+    while (y < disks)
+    {
+        x = 0;
+        while (x < poles)
+        {
+            z = disks-1;
+            while (z >= 0)
+            {
+                if (z < game[(y*poles)+x]) outputc('[');
+                else outputc(' ');
+                z--;
+            }
+            outputc('|');
+            z = 0;
+            while (z < disks)
+            {
+                if (z < game[(y*poles)+x]) outputc(']');
+                else outputc(' ');
+                z++;
+            }
+            x++;
+        }
+        outnl();
+        y++;
+    }
+    x = 0;
+    while (x < (disks*2+1)*poles)
+    {
+        outputc('#');
+        x++;
+    }
+    outnl();
+}
+
+moveOne(int sourceIndex, destinationIndex)
+{
+    int sourceHeight:0,destinationHeight:0;
+    if (disks == 1)
+    {
+        game[destinationIndex] = game[sourceIndex];
+        game[sourceIndex] = 0;
+        return;
+    }
+    while ((game[sourceHeight*poles+sourceIndex] == 0) & (destinationHeight+1 < disks))
+        sourceHeight++;
+    while ((game[(destinationHeight+1)*poles+destinationIndex] == 0) & (destinationHeight+1 < disks))
+        destinationHeight++;
+    game[destinationHeight*poles+destinationIndex] = game[sourceHeight*poles+sourceIndex];
+    game[sourceHeight*poles+sourceIndex] = 0;
+}
+
+int moveStack(int numDisks, sourceIndex, destinationIndex, intermediateIndex)
+{
+    int moves:0;
+    if (numDisks == 0) return 0;
+    moves += moveStack(numDisks-1, sourceIndex, intermediateIndex, destinationIndex);//move n-1 disks from the source stack to the intermediate stack
+    moveOne(sourceIndex, destinationIndex);//move one disk from the source stack to the destination stack
+    moves++;
+    printGame();
+    moves += moveStack(numDisks-1, intermediateIndex, destinationIndex, sourceIndex);//move the n-1 disks from the intermediate stack to the destination stack
+    return moves;
+}
+
+main()
+{
+    int y:0, x;
+    outputc('H');
+    outputc('o');
+    outputc('w');
+    outputc(' ');
+    outputc('m');
+    outputc('a');
+    outputc('n');
+    outputc('y');
+    outputc(' ');
+    outputc('d');
+    outputc('i');
+    outputc('s');
+    outputc('k');
+    outputc('s');
+    outputc('?');
+    outnl();
+    disks = input();
+    if (disks < 1)
+    {
+        outputc('T');
+        outputc('h');
+        outputc('a');
+        outputc('t');
+        outputc('\'');
+        outputc('s');
+        outputc(' ');
+        outputc('n');
+        outputc('o');
+        outputc('t');
+        outputc(' ');
+        outputc('e');
+        outputc('n');
+        outputc('o');
+        outputc('u');
+        outputc('g');
+        outputc('h');
+        outputc(' ');
+        outputc('d');
+        outputc('i');
+        outputc('s');
+        outputc('k');
+        outputc('s');
+        outnl();
+        return;
+    }
+    // if (disks > 15)
+    // {
+    //     outputc('T');
+    //     outputc('h');
+    //     outputc('a');
+    //     outputc('t');
+    //     outputc('\'');
+    //     outputc('s');
+    //     outputc(' ');
+    //     outputc('t');
+    //     outputc('o');
+    //     outputc('o');
+    //     outputc(' ');
+    //     outputc('m');
+    //     outputc('a');
+    //     outputc('n');
+    //     outputc('y');
+    //     outputc(' ');
+    //     outputc('d');
+    //     outputc('i');
+    //     outputc('s');
+    //     outputc('k');
+    //     outputc('s');
+    //     outnl();
+    //     return;
+    // }
+    while (y < disks)
+    {
+        x = 0;
+        while (x < poles)
+        {
+            if (x == 0) game[y*poles] = y+1;
+            else game[(y*poles)+x] = 0;
+            x++;
+        }
+        y++;
+    }
+    outputc('S');
+    outputc('o');
+    outputc('l');
+    outputc('v');
+    outputc('i');
+    outputc('n');
+    outputc('g');
+    outputc('.');
+    outputc('.');
+    outputc('.');
+    outnl();
+    printGame();
+    x = moveStack(disks, 0, (poles-1), 1);
+    outputc('S');
+    outputc('o');
+    outputc('l');
+    outputc('v');
+    outputc('e');
+    outputc('d');
+    outputc(' ');
+    outputc('i');
+    outputc('n');
+    outputc(' ');
+    output(x);
+    outputc(' ');
+    outputc('m');
+    outputc('o');
+    outputc('v');
+    outputc('e');
+    if (x > 1) outputc('s');
+    outnl();
+}

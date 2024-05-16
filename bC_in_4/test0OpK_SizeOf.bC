@@ -1,0 +1,17 @@
+#DRBC OpK
+#DRBC Func: main returns type void [mem: Global loc: 0 size: -2] [line: 9]
+#DRBC .   Child: 1  Compound [mem: None loc: 0 size: -13] [line: 9]
+#DRBC .   .   Child: 0  Var: cat of array of type int [mem: Local loc: -3 size: 11] [line: 10]
+#DRBC .   .   Child: 1  Op: sizeof of type int [line: 11]
+#DRBC .   .   .   Child: 0  Id: cat of array of type int [mem: Local loc: -3 size: 11] [line: 11]
+#DRBC LDC  3,10(6)   load size of array cat             -> VarK: isArray and varKind = Local
+#DRBC ST  3,-2(1)    save size of array cat             -> VarK: isArray and varKind = Local
+#DRBC       .....
+#DRBC * EXPRESSION                                      Comment printed before every ExpK
+#DRBC LDA  3,-3(1)   Load address of base of array cat  -> child[0] IdK: isArray varKind != Parameter
+#DRBC LD  3,1(3)     Load array size                    OpK: attr.op = SIZEOF
+
+main() {
+   int cat[10];
+   *cat;
+}

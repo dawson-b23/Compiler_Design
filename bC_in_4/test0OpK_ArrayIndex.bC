@@ -1,0 +1,24 @@
+#DRBC OpK
+#DRBC Func: main returns type void [mem: Global loc: 0 size: -2] [line: 15]
+#DRBC .   Child: 1  Compound [mem: None loc: 0 size: -13] [line: 15]
+#DRBC .   .   Child: 0  Var: cat of array of type int [mem: Local loc: -3 size: 11] [line: 16]
+#DRBC .   .   Child: 1  Op: [ of type int [line: 17]
+#DRBC .   .   .   Child: 0  Id: cat of array of type int [mem: Local loc: -3 size: 11] [line: 17]
+#DRBC .   .   .   Child: 1  Const 0 of type int [line: 17]
+#DRBC LDC  3,10(6)    load size of array cat                -> VarK: isArray and varKind = Local
+#DRBC ST  3,-2(1)     save size of array cat                -> VarK: isArray and varKind = Local
+#DRBC       .....
+#DRBC * EXPRESSION                                          Comment printed before every ExpK
+#DRBC LDA  3,-3(1)    Load address of base of array cat     -> child[0] IdK: isArray varKind != Parameter 
+#DRBC ST  3,-13(1)   Push left side                         OpK: If Child[1] exists
+#DRBC * TOFF dec: -14                                       OpK: If Child[1] exists        
+#DRBC LDC  3,0(6)     Load integer constant                 -> child[1]
+#DRBC * TOFF inc: -13                                       OpK: If Child[1] exists        
+#DRBC LD   4,-13(1)   Pop left into ac1                     OpK: If Child[1] exists
+#DRBC SUB  3,4,3      compute location from index           OpK: attr.op = [
+#DRBC LD   3,0(3)     Load array element                    OpK: attr.op = [
+
+main() {
+   int cat[10];
+   cat[0];
+}

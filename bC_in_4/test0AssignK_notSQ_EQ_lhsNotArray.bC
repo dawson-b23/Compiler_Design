@@ -1,0 +1,23 @@
+#DRBC AssignK lhs->attr.op != '['  attr.op = '=' , lhs isArray = false,lhs->varKind != Parameter
+#DRBC Sibling: 7  Func: main returns type void [mem: Global loc: 0 size: -2] [line: 4]
+#DRBC .   Child: 1  Compound [mem: None loc: 0 size: -3] [line: 4]
+#DRBC .   .   Child: 0  Var: dog of type bool [mem: Local loc: -2 size: 1] [line: 5]
+#DRBC .   .   Child: 1  Assign: = of type bool [line: 6]
+#DRBC .   .   .   Child: 0  Id: dog of type bool [mem: Local loc: -2 size: 1] [line: 6]
+#DRBC .   .   .   Child: 1  Const false of type bool [line: 6]
+#DRBC 
+#DRBC * EXPRESSION                                  Comment printed before every ExpK
+#DRBC                                               AssignK: TreeNode *rhs, *lhs; 
+#DRBC                                                        lhs = currnode->child[0]; 
+#DRBC                                                        rhs = currnode->child[1];
+#DRBC                                               AssignK: remaining line are if isArray == false 
+#DRBC                                               AssignK: int offReg = offsetRegister(lhs->varKind)
+#DRBC    LDC  3,0(6)         Load Boolean constant  ->child[rhs] // if it exists                                            
+#DRBC    ST  3,-2(1)          Store variable dog    AssignK: when attr.op is '=', 
+
+
+main(){
+   bool dog;
+   dog = false;
+}
+

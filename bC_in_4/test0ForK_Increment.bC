@@ -1,0 +1,57 @@
+#DRBC ForK: with BY included
+#DRBC Func: main returns type void [mem: Global loc: 0 size: -2] [line: 29]
+#DRBC .   Child: 1  Compound [mem: None loc: 0 size: -2] [line: 29]
+#DRBC .   .   Child: 1  For [mem: None loc: 0 size: -5] [line: 30]
+#DRBC .   .   .   Child: 0  Var: i of type int [mem: Local loc: -2 size: 1] [line: 30]
+#DRBC .   .   .   Child: 1  Range [line: 30]
+#DRBC .   .   .   .   Child: 0  Const 3 of type int [line: 30]
+#DRBC .   .   .   .   Child: 1  Const 3 of type int [line: 30]
+#DRBC .   .   .   .   Child: 2  Const 2 of type int [line: 30]
+#DRBC .   .   .   Child: 2  Compound [mem: None loc: 0 size: -5] [line: 30]
+#DRBC 
+#DRBC                                                               int savedToffset;
+#DRBC                                                               int startoff, stopoff, stepoff;
+#DRBC                                                               savedToffset = toffset;
+#DRBC                                                               toffset = currnode->size;
+#DRBC * TOFF set: -5                                                ForK:
+#DRBC * FOR                                                         ForK:
+#DRBC                                                               loopindex = currnode->child[0];
+#DRBC                                                               startoff = loopindex->offset;
+#DRBC                                                               stopoff = startoff-1;
+#DRBC                                                               stepoff = startoff-2;
+#DRBC                                                               --------Processing RangeK inside ForK
+#DRBC                                                                    TreeNode *rangenode;
+#DRBC                                                                    rangenode = currnode->child[1];
+#DRBC  40:    LDC  3,3(6)     Load integer constant                      rangenode->child[0]
+#DRBC  41:     ST  3,-2(1)    save starting value in index variable      ForK:RangeK (using startoff saved above)
+#DRBC  42:    LDC  3,3(6)     Load integer constant                      rangenode->child[1]
+#DRBC  43:     ST  3,-3(1)    save stop value                            ForK:RangeK (using stopoff saved above)
+#DRBC  44:    LDC  3,2(6)     Load integer constant                      rangenode->child[2] (using stepoff saved above) but only if (rangenode->child[2]!=NULL)
+#DRBC  45:     ST  3,-4(1)    save step value                            ForK:RangeK
+#DRBC                                                               --------Processing RangeK inside ForK now complete
+#DRBC                                                               currloc = emitSkip(0); // return to here to do the test
+#DRBC  46:     LD  4,-2(1)    loop index                            ForK:
+#DRBC  47:     LD  5,-3(1)    stop value                            ForK:
+#DRBC  48:     LD  3,-4(1)    step value                            ForK:
+#DRBC  49:    SLT  3,4,5      Op <                                  ForK:
+#DRBC  50:    JNZ  3,1(7)     Jump to loop body                     ForK: (Jump 1 instuction: the JMP instuciton that will be backpatched below
+#DRBC                                                               skiploc = breakloc; 
+#DRBC                                                               breakloc = emitSkip(1);
+#DRBC * COMPOUND                                                    ->child[2]
+#DRBC * TOFF set: -5                                                ->child[2]
+#DRBC * Compound Body                                               ->child[2]
+#DRBC * TOFF set: -5                                                ->child[2]
+#DRBC * END COMPOUND                                                ->child[2]
+#DRBC * Bottom of loop increment and jump                           ForK:
+#DRBC  52:     LD  3,-2(1)    Load index                            ForK:
+#DRBC  53:     LD  5,-4(1)    Load step                             ForK:
+#DRBC  54:    ADD  3,3,5      increment                             ForK:
+#DRBC  55:     ST  3,-2(1)    store back to index                   ForK:
+#DRBC  56:    JMP  7,-11(7)   go to beginning of loop               ForK: Jump to currloc stored above
+#DRBC  51:    JMP  7,5(7)     Jump past loop [backpatch]            ForK: backpatch to breakloc stored above
+#DRBC                                                               breakloc = skiploc;
+#DRBC * END LOOP                                                    ForK:
+
+main() {
+   for i=3 to 3 by 2 do {}
+}

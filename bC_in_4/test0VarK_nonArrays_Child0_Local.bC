@@ -1,0 +1,13 @@
+#DRBC VarK isArray=false, varKind=Local
+#DRBC Func: main returns type void [mem: Global loc: 0 size: -2] [line: 6]
+#DRBC .   Child: 1  Compound [mem: None loc: 0 size: -3] [line: 6]
+#DRBC .   .   Child: 0  Var: x of type int [mem: Local loc: -2 size: 1] [line: 7]
+#DRBC .   .   .   Child: 0  Const 3 of type int [line: 7]
+#DRBC 
+#DRBC                                            Note: This is only for varKind=Local. {LocalStatic, Parameter and Global do nothing}
+#DRBC LDC  3,3(6)     Load integer constant      ->child[0]
+#DRBC  ST  3,-2(1)    Store variable x           VarK: 
+
+main() {
+   int x:3;
+}

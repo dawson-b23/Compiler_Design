@@ -1,0 +1,53 @@
+#DRBC * FUNCTION x                                                 FuncK - In order to call a function, we needed to define a function
+#DRBC * TOFF set: -3                                               FuncK - The next few lines are for the unction
+#DRBC ST  3,-1(1)    Store return address                          FuncK
+#DRBC * COMPOUND                                                   FuncK  
+#DRBC * TOFF set: -3                                               FuncK
+#DRBC * Compound Body                                              FuncK  
+#DRBC * TOFF set: -3                                               FuncK
+#DRBC * END COMPOUND                                               FuncK  
+#DRBC * Add standard closing in case there is no return statement  FuncK   
+#DRBC LDC  2,0(6)     Set return value to 0                        FuncK
+#DRBC  LD  3,-1(1)    Load return address                          FuncK
+#DRBC  LD  1,0(1)     Adjust fp                                    FuncK
+#DRBC JMP  7,0(3)     Return                                       FuncK
+#DRBC * END FUNCTION x                                             FuncK
+#DRBC *                                                            FuncK
+#DRBC * ** ** ** ** ** ** ** ** ** ** ** **                        FuncK Main - FuncK x had to come first. This is the hrmal main
+#DRBC * FUNCTION main                                              FuncK Main
+#DRBC * TOFF set: -2                                               FuncK Main
+#DRBC ST  3,-1(1)    Store return address                          FuncK Main
+#DRBC * COMPOUND                                                   FuncK Main
+#DRBC * TOFF set: -2                                               FuncK Main CompoundK
+#DRBC * Compound Body                                              FuncK Main CompoundK
+#DRBC                                                              CallK is child[1]
+#DRBC * EXPRESSION                                                 CallK - This is the comment before every expression
+#DRBC * CALL x                                                     CallK
+#DRBC ST  1,-2(1)    Store fp in ghost frame for x                 CallK
+#DRBC * TOFF dec: -3                                               CallK
+#DRBC * TOFF dec: -4                                               CallK
+#DRBC * Param 1                                                    CallK child[0] exists loop through each parameter
+#DRBC LDC  3,1(6)     Load integer constant                        codgenExperssion the current param (in this case a ConstantK->Integer)
+#DRBC ST  3,-4(1)    Push parameter                                CallK child[0] exists 
+#DRBC * TOFF dec: -5                                               CallK child[0] exists 
+#DRBC * Param end x                                                CallK child[0] exists 
+#DRBC LDA  1,-2(1)    Ghost frame becomes new active frame         CallK
+#DRBC LDA  3,1(7)     Return address in ac                         CallK
+#DRBC JMP  7,-12(7)   CALL x                                       CallK
+#DRBC LDA  3,0(2)     Save the result in ac                        CallK
+#DRBC * Call end x                                                 CallK
+#DRBC * TOFF set: -2                                               CallK
+#DRBC * TOFF set: -2                                               FuncK Main CompoundK
+#DRBC * END COMPOUND                                               FuncK Main CompoundK
+#DRBC * Add standard closing in case there is no return statement  FuncK Main
+#DRBC LDC  2,0(6)     Set return value to 0                        FuncK Main
+#DRBC LD  3,-1(1)    Load return address                           FuncK Main
+#DRBC LD  1,0(1)     Adjust fp                                     FuncK Main
+#DRBC JMP  7,0(3)     Return                                <
+
+x(int y){}
+
+main()
+{
+    x(1);
+}

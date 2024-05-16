@@ -1,0 +1,30 @@
+#DRBC CallK with multiple paramters. See the previous test for the rest of the code
+#DRBC This just shows the looping of the paramters
+#DRBC                                             param = currnode->child[0];
+#DRBC                                             while (param) 
+#DRBC * Param 1                                   CallK                
+#DRBC  LDC  3,1(6)     Load integer constant      codegenExpression(param);      
+#DRBC  ST  3,-4(1)    Push parameter              CallK           
+#DRBC * TOFF dec: -5                              CallK        
+#DRBC                                             param = param->sibling; 
+#DRBC                                             param is still not null so the loop continues       
+#DRBC * Param 2                                   CallK                  
+#DRBC LDC  3,113(6)   Load char constant          codegenExpression(param);          
+#DRBC  ST  3,-5(1)    Push parameter              CallK          
+#DRBC * TOFF dec: -6                              CallK                  
+#DRBC                                             param = param->sibling;
+#DRBC                                             param is still not null so the loop continues
+#DRBC * Param 3                                   CallK                  
+#DRBC LDC  3,1(6)     Load Boolean constant       codegenExpression(param);          
+#DRBC  ST  3,-6(1)    Push parameter              CallK          
+#DRBC                                             param = param->sibling;
+#DRBC                                             param not null so the loop ends
+#DRBC * TOFF dec: -7                                                
+
+
+x(int a; char b; bool c){}
+
+main()
+{
+    x(1, 'q', true);
+}

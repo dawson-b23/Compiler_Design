@@ -1,0 +1,25 @@
+bool nope() {
+    bool x[1];
+
+    x[0] = false;
+
+    return x;
+}
+
+
+main()
+{
+    outputb(false and false);
+    outputb(false and true);
+    outputb(true and false);
+    outputb(true and true);
+    outnl();
+
+    outputb(false or false);
+    outputb(false or true);
+    outputb(true or false);
+    outputb(true or true);
+    outnl();
+    
+    nope();
+}

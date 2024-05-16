@@ -1,0 +1,27 @@
+#DRBC WhileK
+#DRBC main returns type void [mem: Global loc: 0 size: -2] [line: 19]
+#DRBC .   Child: 1  Compound [mem: None loc: 0 size: -2] [line: 19]
+#DRBC .   .   Child: 1  While [line: 20]
+#DRBC .   .   .   Child: 0  Const true of type bool [line: 20]
+#DRBC .   .   .   Child: 1  Compound [mem: None loc: 0 size: -2] [line: 20]
+#DRBC 
+#DRBC * WHILE                                              WhileK:
+#DRBC                                                      WhileK: currloc = emitSkip(0);
+#DRBC  40:    LDC  3,1(6)     Load Boolean constant        ->child[0]
+#DRBC  41:    JNZ  3,1(7)     Jump to while part           WhileK:
+#DRBC * DO                                                 WhileK:
+#DRBC                                                      WhileK: skiploc = breakloc; 
+#DRBC                                                      WhileK: breakloc = emitSkip(1);
+#DRBC * COMPOUND                                           ->child[1]
+#DRBC * TOFF set: -2                                       ->child[1]
+#DRBC * Compound Body                                      ->child[1]
+#DRBC * TOFF set: -2                                       ->child[1]
+#DRBC * END COMPOUND                                       ->child[1]
+#DRBC  43:    JMP  7,-4(7)    go to beginning of loop      WhileK: (Jump to currloc saved above)
+#DRBC  42:    JMP  7,1(7)     Jump past loop [backpatch]   WhileK: (In breakloc saved above)
+#DRBC                                                      WhileK: breakloc = skiploc;
+#DRBC * END WHILE                                          WhileK:
+
+main() {
+   while(true) do {}
+}

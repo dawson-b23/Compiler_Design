@@ -1,0 +1,10 @@
+#DRBC Func: main returns type void [mem: Global loc: 0 size: -2] [line: 6]
+#DRBC .   Child: 1  Compound [mem: None loc: 0 size: -2] [line: 6]
+#DRBC .   .   Child: 1  Const "cat" of array of type char [mem: Global loc: -1 size: 4] [line: 7]
+#DRBC * EXPRESSION                                 ExpK
+#DRBC LIT  "cat"                                   ConstantK type=Char isArray=true
+#DRBC                                         Note LIT from: emitStrLit(currnode->offset, currnode->attr.string);
+#DRBC LDA  3,-1(0)    Load address of char array   ConstantK type=Char isArray=true
+main() {
+   "cat";
+}

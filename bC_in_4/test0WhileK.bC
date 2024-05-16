@@ -1,0 +1,26 @@
+#DRBC WhileK
+#DRBC Func: main returns type void [mem: Global loc: 0 size: -2] [line: 15]
+#DRBC .   Child: 1  Compound [mem: None loc: 0 size: -2] [line: 15]
+#DRBC .   .   Child: 1  While [line: 16]
+#DRBC .   .   .   Child: 0  Const true of type bool [line: 16]
+#DRBC .   .   .   Child: 1  Compound [mem: None loc: 0 size: -2] [line: 16]
+#DRBC * WHILE                                      WhileK:
+#DRBC                                              WhileK: loopTest= emitSkip(0). Save this location so we can jump back to it later.         
+#DRBC LDC  3,1(6)     Load Boolean constant        -> child[0] Child 0 will resolve to 1=true 0=false The result will be in AC (register 3)        
+#DRBC JNZ  3,1(7)     Jump to while part           WhileK: (jump nonzero) if reg[3]!=0 reg[PC] = 1 + reg[PC] (PC is register 7)         
+#DRBC * DO                                         WhileK: 
+#DRBC                                              skiploc = breakloc;               // save the old break statement return point
+#DRBC                                              breakloc = emitSkip(1);            // addr of instr that jumps to end of loop                
+#DRBC * COMPOUND                                   -> child[1]                 
+#DRBC * TOFF set: -2                               -> child[1]                 
+#DRBC * Compound Body                              -> child[1]                 
+#DRBC * TOFF set: -2                               -> child[1]                 
+#DRBC * END COMPOUND                               -> child[1]                 
+#DRBC JMP  7,-4(7)    go to beginning of loop      WhileK: Jump back up to the loopTest         
+#DRBC JMP  7,1(7)     Jump past loop [backpatch]   WhileK: This backpatched instuction will come before child[1]       
+#DRBC                                              breakloc = skiploc;               // restore for break statement 
+#DRBC * END WHILE                                                   
+
+main() {
+   while(true) do  {}
+}

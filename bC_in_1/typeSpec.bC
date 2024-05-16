@@ -1,0 +1,5 @@
+#DRBC Testing int bool char from <typeSpec>     ::= INT  | BOOL | CHAR   
+int 
+bool
+char
+int bool char in bool char

@@ -1,0 +1,35 @@
+#DRBC testing STRINGCONST in  <constant> ::= NUMCONST | CHARCONST | STRINGCONS | BOOLCONST
+
+ 
+
+" hello" 
+
+"goodbye"  
+
+"hello" and "goodby"
+
+"normal string" 
+
+"string "inside" another string" 
+
+ 
+
+"across line 
+
+string" 
+
+ 
+
+empty string "" 
+
+ 
+
+string full of spaces
+
+"      "
+
+ 
+
+"\n" 
+
+"\0" 

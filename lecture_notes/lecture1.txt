@@ -1,0 +1,28 @@
+cs445
+compilers 
+1/10/24
+
+first lecture - introduction / 
+
+make sure to get access to server and complete assignment 0 (which i did during class today)
+assignmnets will be flexible (but you need to stay on top of them)
+	
+	first assignment will be due very soon 
+	
+what is a compiler?
+	
+	source program -> compiler -> target program
+						|
+					error message
+
+    bC -> our compiler -> assembly language 
+
+    	make sure to get file names correct 
+
+see picture for files and names (see photo)
+
+	black files are already written 
+	blue files are ones we have to write
+
+see photos for first assignment instructions 
+

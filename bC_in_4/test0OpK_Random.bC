@@ -1,0 +1,12 @@
+#DRBC OpK
+#DRBC Func: main returns type void [mem: Global loc: 0 size: -2] [line: 6]
+#DRBC .   Child: 1  Compound [mem: None loc: 0 size: -2] [line: 6]
+#DRBC .   .   Child: 1  Op: ? of type int [line: 7]
+#DRBC .   .   .   Child: 0  Const 9 of type int [line: 7]
+#DRBC * EXPRESSION                              Comment printed before every ExpK
+#DRBC LDC  3,9(6)     Load integer constant     -> child[0]
+#DRBC RND  3,3,6      Op ?                      OpK: attr.op = '?'
+
+main() {
+   ?9;
+}

@@ -1,0 +1,22 @@
+#DRBC AssignK lhs->attr.op != '[' , attr.op = MULASS
+#DRBC Sibling: 7  Func: main returns type void [mem: Global loc: 0 size: -2] [line: 3]
+#DRBC .   Child: 1  Compound [mem: None loc: 0 size: -3] [line: 3]
+#DRBC .   .   Child: 0  Var: dog of type int [mem: Local loc: -2 size: 1] [line: 4]
+#DRBC .   .   Child: 1  Assign: *= of type int [line: 5]
+#DRBC .   .   .   Child: 0  Id: dog of type int [mem: Local loc: -2 size: 1] [line: 5]
+#DRBC .   .   .   Child: 1  Const 3 of type int [line: 5]
+
+#DRBC * EXPRESSION                                   Comment printed before every ExpK   
+#DRBC                                              AssignK TreeNode *rhs, *lhs; lhs = currnode->child[0]; rhs = currnode->child[1];
+#DRBC                                              AssignK: remaining line are if isArray == false 
+#DRBC                                              AssignK int offReg = offsetRegister(lhs->varKind)
+#DRBC         
+#DRBC      LDC  3,3(6)  Load integer constant      ->child[rhs] // if it exists        
+#DRBC      LD  4,-2(1)  load lhs variable dog      AssignK when attr.op is MULASS
+#DRBC      MUL  3,4,3   op *=                    AssignK when attr.op is MULASS
+#DRBC      ST  3,-2(1)  Store variable dog         AssignK when attr.op is MULASS   
+
+main(){
+ int dog;
+ dog *= 3;
+}

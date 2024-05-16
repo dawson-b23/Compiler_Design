@@ -1,0 +1,13 @@
+#DRBC OpK
+#DRBC Func: main returns type void [mem: Global loc: 0 size: -2] [line: 7]
+#DRBC .   Child: 1  Compound [mem: None loc: 0 size: -2] [line: 7]
+#DRBC .   .   Child: 1  Op: not of type bool [line: 8]
+#DRBC .   .   .   Child: 0  Const true of type bool [line: 8]
+#DRBC * EXPRESSION                                 Comment printed before every ExpK           
+#DRBC LDC  3,1(6)     Load Boolean constant        -> child[0]         
+#DRBC LDC  4,1(6)     Load 1                       OpK: attr.op = NOT         
+#DRBC XOR  3,3,4      Op XOR to get logical not    OpK: attr.op = NOT         
+
+main() {
+   not true;
+}

@@ -1,0 +1,7 @@
+#DRBC Testing ID NUMCONST CHARCONST STRINGCONST whitespace comments  from section 1.1
+r2d2 c3p0 H0PE TH1S W0RKS
+54432859432
+a b c d
+// This comment should be ignored
+"Hello World"
+"Hello" "World"

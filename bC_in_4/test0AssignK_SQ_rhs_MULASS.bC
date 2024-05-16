@@ -1,0 +1,36 @@
+#DRBC AssignK MULASS
+
+#DRBC Sibling: 7  Func: main returns type void [mem: Global loc: 0 size: -2] [line: 8]
+#DRBC .   Child: 1  Compound [mem: None loc: 0 size: -7] [line: 9]
+#DRBC .   .   Child: 0  Var: arrA of array of type int [mem: Local loc: -3 size: 5] [line: 10]
+#DRBC .   .   Child: 1  Assign: *= of type int [line: 12]
+#DRBC .   .   .   Child: 0  Op: [ of type int [line: 12]
+#DRBC .   .   .   .   Child: 0  Id: arrA of array of type int [mem: Local loc: -3 size: 5] [line: 12]
+#DRBC .   .   .   .   Child: 1  Const 0 of type int [line: 12]
+#DRBC .   .   .   Child: 1  Const 2 of type int [line: 12]
+#DRBC 
+#DRBC * EXPRESSION                                             AssignK: Comment printed before every ExpK
+#DRBC                                                          TreeNode *rhs, *lhs;
+#DRBC                                                          lhs = currnode->child[0];
+#DRBC                                                          rhs = currnode->child[1];
+#DRBC 
+#DRBC                                                          rhs == '[' is true for all remaining lines
+#DRBC 
+#DRBC LDC  3,0(6)     Load integer constant                    ->child[index]
+#DRBC  ST  3,-7(1)    Push index                               AssignK: if rhs exists
+#DRBC * TOFF dec: -8                                           AssignK: if rhs exists
+#DRBC LDC  3,2(6)     Load integer constant                    AssignK: if rhs exists
+#DRBC * TOFF inc: -7                                           AssignK: if rhs exists
+#DRBC  LD  4,-7(1)    Pop index                                AssignK: if rhs exists
+#DRBC LDA  5,-3(1)    Load address of base of array arrA       AssignK: if var->varkind == Local
+#DRBC SUB  5,5,4      Compute offset of value                  AssingK: if rhs exists
+#DRBC  LD  4,0(5)     load lhs variable arrA                   AssignK lhs->attr.op = '[' , attr.op = MULASS
+#DRBC  MUL  3,4,3      op *=                                   AssignK lhs->attr.op = '[' , attr.op = MULASS
+#DRBC  ST  3,0(5)     Store variable arrA                      AssignK lhs->attr.op = '[' , attr.op = MULASS
+main()
+{
+    int arrA[4];
+
+    arrA[0] *= 2;
+
+}

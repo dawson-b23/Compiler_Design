@@ -1,0 +1,27 @@
+#DRBC VarK - non arrays no child[0]
+#DRBC Sibling: 7  Var: a of type int [mem: Global loc: 0 size: 1] [line: 8]
+#DRBC Sibling: 8  Var: b of type char [mem: Global loc: -1 size: 1] [line: 9]
+#DRBC Sibling: 9  Var: c of type bool [mem: Global loc: -2 size: 1] [line: 10]
+#DRBC Sibling: 10  Func: main returns type void [mem: Global loc: 0 size: -2] [line: 12]
+#DRBC .   Child: 1  Compound [mem: None loc: 0 size: -5] [line: 12]
+#DRBC .   .   Child: 0  Var: x of type int [mem: Local loc: -2 size: 1] [line: 13]
+#DRBC .   .   Sibling: 1  Var: y of type char [mem: Local loc: -3 size: 1] [line: 14]
+#DRBC .   .   Sibling: 2  Var: z of type bool [mem: Local loc: -4 size: 1] [line: 15]
+#DRBC .   .   Sibling: 3  Var: sx of static type int [mem: LocalStatic loc: -3 size: 1] [line: 17]
+#DRBC .   .   Sibling: 4  Var: sy of static type char [mem: LocalStatic loc: -4 size: 1] [line: 18]
+#DRBC .   .   Sibling: 5  Var: sz of static type bool [mem: LocalStatic loc: -5 size: 1] [line: 19]
+#DRBC Note: there is no difference!!! VarK does nothing at this stage
+int a;
+char b;
+bool c;
+
+main() {
+   int x;
+   char y;
+   bool z;
+
+   static int sx;
+   static char sy;
+   static bool sz;
+
+}

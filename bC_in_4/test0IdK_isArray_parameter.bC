@@ -1,0 +1,11 @@
+#DRBC IdK isArray=true varKind == Parameter
+#DRBC * EXPRESSION                                                  Comment Before every ExpK
+#DRBC  40:     LD  3,-2(1)    Load address of base of array arr     #DRBC IdK isArray=true varKind == Parameter
+
+helpterFunction(int arr[]) {
+   arr[1]; // This is the line that maeks the difference
+}
+
+main() {
+
+}

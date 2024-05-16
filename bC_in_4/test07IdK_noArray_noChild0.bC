@@ -1,0 +1,10 @@
+#DRBC OpK: isArray=false child[0]==NULL
+#DRBC Note: For IdK, you can get the offset register from:
+#DRBC       off = offsetRegister(currnode->varKind);
+#DRBC * EXPRESSION                           Comment before every ExpK
+#DRBC LD  3,-2(1)    Load variable x         OpK: isArray=false child[0]==NULL
+
+main() {
+   int x;
+   x;
+}

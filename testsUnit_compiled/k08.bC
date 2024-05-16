@@ -1,0 +1,12 @@
+main()
+{
+   int i;
+   int sum;
+
+   i = 37;
+
+   sum = 0;
+   for i=1 to 10 do sum += i;
+   output(i);
+   output(sum);
+}
