@@ -1,3 +1,14 @@
+/**
+ * @file semantics.cpp
+ * @author Dawson Burgess (dawsonhburgess@gmail.com)
+ * @brief 
+ * @version 1.0
+ * @date 2024-05-20
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
+
 #include <string.h>
 #include "treeNodes.h"
 #include "treeUtils.h"

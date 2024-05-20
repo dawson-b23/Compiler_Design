@@ -2,7 +2,7 @@
  * @file scanType.h
  * @author Dawson Burgess (dawsonhburgess@gmail.com)
  * @brief 
- * @version 0.1
+ * @version 2.0
  * @date 2024-05-16
  * 
  * @copyright Copyright (c) 2024

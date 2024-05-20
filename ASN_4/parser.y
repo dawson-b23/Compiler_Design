@@ -1,4 +1,16 @@
 %{
+   /**
+ * @file parser.y
+ * @author Dawson Burgess (dawsonhburgess@gmail.com)
+ * 
+ * @brief 
+ * 
+ * @version 3.0
+ * @date 2024-05-16
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
 #include <stdio.h>
 #include <iostream>
 #include <stdlib.h>

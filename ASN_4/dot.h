@@ -1,3 +1,13 @@
+/**
+ * @file dot.h
+ * @author Dawson Burgess (dawsonhburgess@gmail.com)
+ * @brief 
+ * @version 1.0
+ * @date 2024-05-20
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
 #ifndef _DOT_H_
 #define _DOT_H_
 #include "treeUtils.h"

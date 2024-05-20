@@ -1,3 +1,13 @@
+/**
+ * @file treeUtils.cpp
+ * @author Dawson Burgess (dawsonhburgess@gmail.com)
+ * @brief 
+ * @version 0.1
+ * @date 2024-05-20
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
 #include "treeUtils.h"
 #include "scanType.h"
 #include <stdlib.h>

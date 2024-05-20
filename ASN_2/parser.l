@@ -1,4 +1,15 @@
 %{
+/**
+ * @file parser.l
+ * @author Dawson Burgess (dawsonhburgess@gmail.com)
+ * @brief 
+ * @version 1.0
+ * @date 2024-05-20
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
+
 #include "scanType.h"
 #include "parser.tab.h" // This has to be the last include
 

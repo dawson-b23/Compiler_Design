@@ -1,4 +1,15 @@
 %{
+   /**
+ * @file parser.y
+ * @author Dawson Burgess (dawsonhburgess@gmail.com)
+ * @brief 
+ * @version 1.0
+ * @date 2024-05-20
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
+
 #include <cstdio>
 #include <iostream>
 #include <unistd.h>

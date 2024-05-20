@@ -1,3 +1,13 @@
+/**
+ * @file treeUtils.h
+ * @author Dawson Burgess (dawsonhburgess@gmail.com)
+ * @brief 
+ * @version 0.1
+ * @date 2024-05-20
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
 #ifndef _UTIL_H_
 #define _UTIL_H_
 #include "treeNodes.h"
